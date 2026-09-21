@@ -141,7 +141,7 @@ and
 ./run.sh
 and 
 http://localhost:3000/splash
-copy this for running as local host
+copy this for running as local host 
 
 ## 🔐 Demo Credentials
 
