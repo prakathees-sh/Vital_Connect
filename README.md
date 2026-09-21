@@ -119,6 +119,8 @@ vital-connect4/
 For Running 
 ---bash
 cd Vital_Connect
+
+---
 and
 ./run.sh
 and 
