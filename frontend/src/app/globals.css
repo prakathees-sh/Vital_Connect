@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties ─────────────────────────────────────────────── */
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 241, 245, 249;
+  /* vital-500 = #E11D48  vital-600 = #DC2626 */
+  --vital-500-rgb: 225, 29, 72;
+  --vital-600-rgb: 220, 38, 38;
+}
+
+.dark {
+  --foreground-rgb: 248, 250, 252;
+  --background-start-rgb: 11, 15, 25;
+  --background-end-rgb: 7, 10, 17;
+}
+
+/* ─── Global Element Resets ──────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  min-height: 100vh;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* ─── Tamil Language Font Stack ─────────────────────────────────────────── */
+
+html[lang="ta"] body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Noto Sans Tamil', 'Latha', 'Vijaya', Roboto, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+/* ─── Focus Visible ──────────────────────────────────────────────────────── */
+
+*:focus-visible {
+  outline: 2px solid #E11D48;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Selection Colour ───────────────────────────────────────────────────── */
+
+::selection {
+  background: rgba(225, 29, 72, 0.25);
+  color: inherit;
+}
+
+/* ─── Custom Modern Scrollbar ────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(225, 29, 72, 0.6);
+}
+
+/* ─── Leaflet Map Z-index Fixes ──────────────────────────────────────────── */
+
+.leaflet-pane {
+  z-index: 10 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 20 !important;
+}
+
+/* ─── Keyframe Animations ────────────────────────────────────────────────── */
+
+/**
+ * heartbeat – gentle scale pulse suited for blood-drop / heart icons.
+ * Usage:  animation: heartbeat 2s ease-in-out infinite;
+ */
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.08);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+/**
+ * gradient-shift – animates background-position so moving-gradient
+ * backgrounds flow continuously.
+ * Usage: background-size: 200% 200%; animation: gradient-shift 6s ease infinite;
+ */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/**
+ * fade-in-up – standard entrance animation.
+ * Usage:  animation: fade-in-up 0.4s ease both;
+ */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * pulse-glow – alternates a coloured drop-shadow for glowing emphasis.
+ * Usage:  animation: pulse-glow 2s ease-in-out infinite;
+ */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(225, 29, 72, 0.3),
+                0 0 20px rgba(225, 29, 72, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(225, 29, 72, 0.6),
+                0 0 40px rgba(225, 29, 72, 0.25);
+  }
+}
+
+/* ─── Utility Classes ────────────────────────────────────────────────────── */
+
+/**
+ * glass-card – frosted-glass surface used for elevated cards / panels.
+ */
+.glass-card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.10),
+              0 8px 10px -6px rgba(0, 0, 0, 0.10);
+}
+
+.dark .glass-card {
+  background-color: rgba(15, 23, 42, 0.40);
+}
+
+/**
+ * emergency-glow – vivid red glow applied to urgent / critical elements.
+ */
+.emergency-glow {
+  box-shadow: 0 0 30px rgba(225, 29, 72, 0.3);
+}
+
+/**
+ * gradient-text – clips a rose gradient onto text.
+ */
+.gradient-text {
+  background: linear-gradient(to right, #E11D48, #fb7185);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/**
+ * animate-fade-in-up – convenience class for the fade-in-up entrance.
+ */
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease both;
+}
+
+/**
+ * animate-heartbeat – convenience class for the heartbeat pulse.
+ */
+.animate-heartbeat {
+  animation: heartbeat 2s ease-in-out infinite;
+}
