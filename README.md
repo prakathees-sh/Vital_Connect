@@ -112,26 +112,8 @@ vital-connect4/
 
 ## ⚡ Quick Start
 
-### 1. Prerequisites
-- Python 3.10+ (Installed with `uv` or `pip`)
-- Node.js 18+ and npm
-- PostgreSQL running locally on port 5432 (database: `vital_connect`)
-
-### 2. Database Setup & Seeding
-```bash
-# Enter backend directory and activate virtualenv
-cd backend
-source .venv/bin/activate
-
-# Seed all 38 Tamil Nadu districts, hospitals, blood banks, donors, and inventory
-python seed.py
 ```
 
-### 3. Run Automated Tests
-```bash
-pytest test_api.py
-```
-*Expected: 7 passed in under 7 seconds.*
 
 ### 4. Start the Application
 For Running 
