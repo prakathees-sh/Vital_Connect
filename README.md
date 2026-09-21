@@ -134,28 +134,14 @@ pytest test_api.py
 *Expected: 7 passed in under 7 seconds.*
 
 ### 4. Start the Application
-You can run both servers simultaneously using the root launch script:
-```bash
-chmod +x run.sh
+For Running 
+---bash
+cd Vital_Connect
+and
 ./run.sh
-```
-Or start them individually in separate terminals:
-
-**Backend:**
-```bash
-cd backend
-.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-```
-*FastAPI Docs available at: [http://localhost:8000/docs](http://localhost:8000/docs)*
-
-**Frontend:**
-```bash
-cd frontend
-npm run dev
-```
-*Next.js Application running at: [http://localhost:3000](http://localhost:3000)*
-
----
+and 
+http://localhost:3000/splash
+copy this for running as local host
 
 ## 🔐 Demo Credentials
 
